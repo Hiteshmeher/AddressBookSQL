@@ -169,3 +169,73 @@ mysql> SELECT * FROM addressbook_table WHERE state = 'Odisha' ORDER BY firstName
 | Khusi     | Rout     | junagarh    | Kalahandi | Odisha | 766001 | 2323231574   | khusirout999@yahoo.com  |
 +-----------+----------+-------------+-----------+--------+--------+--------------+-------------------------+
 3 rows in set (0.00 sec)
+
+
+
+========================================= UC9 =========================================
+
+
+mysql> ALTER TABLE addressbook_table ADD COLUMN type varchar(50), ADD bookName varchar(15) NOT NULL ;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE addressbook_table;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| firstName     | varchar(50)  | NO   |     | NULL    |       |
+| lastName      | varchar(50)  | NO   |     | NULL    |       |
+| address       | varchar(100) | YES  |     | NULL    |       |
+| city          | varchar(20)  | YES  |     | NULL    |       |
+| state         | varchar(50)  | YES  |     | NULL    |       |
+| zip           | varchar(10)  | YES  |     | NULL    |       |
+| phone_number  | varchar(15)  | YES  |     | NULL    |       |
+| email_address | varchar(50)  | YES  |     | NULL    |       |
+| type          | varchar(50)  | YES  |     | NULL    |       |
+| bookName      | varchar(15)  | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM addressbook_table;
++-----------+----------+-------------+-----------+-------------+--------+--------------+-------------------------+------+----------+
+| firstName | lastName | address     | city      | state       | zip    | phone_number | email_address           | type | bookName |
++-----------+----------+-------------+-----------+-------------+--------+--------------+-------------------------+------+----------+
+| Hitesh    | Meher    | Bhubaneswar | Khordha   | Odisha      | 751024 | 7008784018   | meher.hitesh3@gmail.com | NULL |          |
+| Priyanka  | Chopra   | Bandra      | Mumbai    | Maharashtra | 111111 | 9999999999   | priyanka@gmail.com      | NULL |          |
+| Neha      | kakkar   | Kothrud     | Pune      | Maharashtra | 411007 | 7092814637   | nehukakkar@gmail.com    | NULL |          |
+| Aditya    | Kumar    | CDA         | Cuttack   | Odisha      | 753014 | 9638527410   | aditya.kumar@yahoo.com  | NULL |          |
+| Khusi     | Rout     | junagarh    | Kalahandi | Odisha      | 766001 | 2323231574   | khusirout999@yahoo.com  | NULL |          |
++-----------+----------+-------------+-----------+-------------+--------+--------------+-------------------------+------+----------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE addressbook_table SET bookName = 'One' , type = 'family' WHERE firstName = 'Hitesh';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressbook_table SET bookName = 'Two' , type = 'family' WHERE firstName = 'Priyanka';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressbook_table SET bookName = 'Two' , type = 'friend' WHERE firstName = 'Neha';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressbook_table SET bookName = 'One' , type = 'friend' WHERE firstName = 'Aditya';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressbook_table SET bookName = 'One' , type = 'profession' WHERE firstName = 'Khusi';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM addressbook_table;
++-----------+----------+-------------+-----------+-------------+--------+--------------+-------------------------+------------+----------+
+| firstName | lastName | address     | city      | state       | zip    | phone_number | email_address           | type       | bookName |
++-----------+----------+-------------+-----------+-------------+--------+--------------+-------------------------+------------+----------+
+| Hitesh    | Meher    | Bhubaneswar | Khordha   | Odisha      | 751024 | 7008784018   | meher.hitesh3@gmail.com | family     | One      |
+| Priyanka  | Chopra   | Bandra      | Mumbai    | Maharashtra | 111111 | 9999999999   | priyanka@gmail.com      | family     | Two      |
+| Neha      | kakkar   | Kothrud     | Pune      | Maharashtra | 411007 | 7092814637   | nehukakkar@gmail.com    | friend     | Two      |
+| Aditya    | Kumar    | CDA         | Cuttack   | Odisha      | 753014 | 9638527410   | aditya.kumar@yahoo.com  | friend     | One      |
+| Khusi     | Rout     | junagarh    | Kalahandi | Odisha      | 766001 | 2323231574   | khusirout999@yahoo.com  | profession | One      |
++-----------+----------+-------------+-----------+-------------+--------+--------------+-------------------------+------------+----------+
+5 rows in set (0.00 sec)
