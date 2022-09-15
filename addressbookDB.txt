@@ -68,3 +68,20 @@ mysql> SELECT * FROM addressbook_table;
 4 rows in set (0.00 sec)
 
 
+========================================= UC4 =========================================
+
+
+mysql> UPDATE addressbook_table SET zip = '111111' WHERE firstName = 'Priyanka';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM addressbook_table;
++-----------+----------+-------------+---------+---------------+--------+--------------+-------------------------+
+| firstName | lastName | address     | city    | state         | zip    | phone_number | email_address           |
++-----------+----------+-------------+---------+---------------+--------+--------------+-------------------------+
+| Hitesh    | Meher    | Bhubaneswar | Khordha | Odisha        | 751024 | 7008784018   | meher.hitesh3@gmail.com |
+| Priyanka  | Chopra   | Bandra      | Mumbai  | Maharashtra   | 111111 | 9999999999   | priyanka@gmail.com      |
+| Nagarjuna | Akkineni | NuaBazar    | Kondal  | AndhraPradesh | 356005 | 1234567890   | nagarjuna@gmail.com     |
+| Neha      | kakkar   | Kothrud     | Pune    | Maharashtra   | 411007 | 7092814637   | nehukakkar@gmail.com    |
++-----------+----------+-------------+---------+---------------+--------+--------------+-------------------------+
+4 rows in set (0.00 sec)
