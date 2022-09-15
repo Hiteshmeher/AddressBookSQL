@@ -103,3 +103,24 @@ mysql> SELECT * FROM addressbook_table;
 +-----------+----------+-------------+---------+-------------+--------+--------------+-------------------------+
 3 rows in set (0.00 sec)
 
+
+========================================= UC6 =========================================
+
+
+mysql> SELECT firstName FROM addressbook_table WHERE state = 'Maharashtra';
++-----------+
+| firstName |
++-----------+
+| Priyanka  |
+| Neha      |
++-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT firstName FROM addressbook_table WHERE city = 'Mumbai';
++-----------+
+| firstName |
++-----------+
+| Priyanka  |
++-----------+
+1 row in set (0.00 sec)
+
