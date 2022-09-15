@@ -137,3 +137,35 @@ mysql> SELECT state, city, COUNT(firstName) FROM addressbook_table GROUP BY stat
 | Maharashtra | Pune    |                1 |
 +-------------+---------+------------------+
 3 rows in set (0.00 sec)
+
+
+========================================= UC8 =========================================
+
+
+mysql> INSERT INTO addressbook_table (firstName, lastName, address, city, state, zip, phone_number, email_address) VALUES
+    -> ('Aditya','Kumar','CDA','Cuttack','Odisha','753014','9638527410','aditya.kumar@yahoo.com'),
+    -> ('Khusi','Rout','junagarh','Kalahandi','Odisha','766001','2323231574','khusirout999@yahoo.com');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM addressbook_table;
++-----------+----------+-------------+-----------+-------------+--------+--------------+-------------------------+
+| firstName | lastName | address     | city      | state       | zip    | phone_number | email_address           |
++-----------+----------+-------------+-----------+-------------+--------+--------------+-------------------------+
+| Hitesh    | Meher    | Bhubaneswar | Khordha   | Odisha      | 751024 | 7008784018   | meher.hitesh3@gmail.com |
+| Priyanka  | Chopra   | Bandra      | Mumbai    | Maharashtra | 111111 | 9999999999   | priyanka@gmail.com      |
+| Neha      | kakkar   | Kothrud     | Pune      | Maharashtra | 411007 | 7092814637   | nehukakkar@gmail.com    |
+| Aditya    | Kumar    | CDA         | Cuttack   | Odisha      | 753014 | 9638527410   | aditya.kumar@yahoo.com  |
+| Khusi     | Rout     | junagarh    | Kalahandi | Odisha      | 766001 | 2323231574   | khusirout999@yahoo.com  |
++-----------+----------+-------------+-----------+-------------+--------+--------------+-------------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM addressbook_table WHERE state = 'Odisha' ORDER BY firstName;
++-----------+----------+-------------+-----------+--------+--------+--------------+-------------------------+
+| firstName | lastName | address     | city      | state  | zip    | phone_number | email_address           |
++-----------+----------+-------------+-----------+--------+--------+--------------+-------------------------+
+| Aditya    | Kumar    | CDA         | Cuttack   | Odisha | 753014 | 9638527410   | aditya.kumar@yahoo.com  |
+| Hitesh    | Meher    | Bhubaneswar | Khordha   | Odisha | 751024 | 7008784018   | meher.hitesh3@gmail.com |
+| Khusi     | Rout     | junagarh    | Kalahandi | Odisha | 766001 | 2323231574   | khusirout999@yahoo.com  |
++-----------+----------+-------------+-----------+--------+--------+--------------+-------------------------+
+3 rows in set (0.00 sec)
