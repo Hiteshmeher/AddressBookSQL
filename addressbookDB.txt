@@ -1,4 +1,4 @@
-================================ UC1 ================================
+========================================= UC1 =========================================
 
 mysql> CREATE DATABASE addressbook_DB;
 Query OK, 1 row affected (0.00 sec)
@@ -14,7 +14,7 @@ mysql> SELECT DATABASE();
 1 row in set (0.00 sec)
 
 
-================================ UC2 ================================
+========================================= UC2 =========================================
 
 
 mysql> CREATE TABLE addressbook_table (
@@ -43,3 +43,28 @@ mysql> Describe Addressbook_table;
 | email_address | varchar(50)  | YES  |     | NULL    |       |
 +---------------+--------------+------+-----+---------+-------+
 8 rows in set (0.01 sec)
+
+
+========================================= UC3 =========================================
+
+
+mysql> INSERT INTO addressbook_table ( firstName, lastName, address, city, state, zip, phone_number, email_address) VALUES
+    -> ('Hitesh','Meher','Bhubaneswar','Khordha','Odisha','751024','7008784018','meher.hitesh3@gmail.com'),
+    -> ('Priyanka','Chopra','Bandra','Mumbai','Maharashtra','411005','9999999999','priyanka@gmail.com'),
+    -> ('Nagarjuna','Akkineni','NuaBazar','Kondal','AndhraPradesh','356005','1234567890','nagarjuna@gmail.com'),
+    -> ('Neha','kakkar','Kothrud','Pune','Maharashtra','411007','7092814637','nehukakkar@gmail.com');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM addressbook_table;
++-----------+----------+-------------+---------+---------------+--------+--------------+-------------------------+
+| firstName | lastName | address     | city    | state         | zip    | phone_number | email_address           |
++-----------+----------+-------------+---------+---------------+--------+--------------+-------------------------+
+| Hitesh    | Meher    | Bhubaneswar | Khordha | Odisha        | 751024 | 7008784018   | meher.hitesh3@gmail.com |
+| Priyanka  | Chopra   | Bandra      | Mumbai  | Maharashtra   | 411005 | 9999999999   | priyanka@gmail.com      |
+| Nagarjuna | Akkineni | NuaBazar    | Kondal  | AndhraPradesh | 356005 | 1234567890   | nagarjuna@gmail.com     |
+| Neha      | kakkar   | Kothrud     | Pune    | Maharashtra   | 411007 | 7092814637   | nehukakkar@gmail.com    |
++-----------+----------+-------------+---------+---------------+--------+--------------+-------------------------+
+4 rows in set (0.00 sec)
+
+
